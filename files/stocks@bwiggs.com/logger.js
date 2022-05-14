@@ -6,6 +6,8 @@ var log = {
     _log(m, level) {
         if(!DEBUG && (level == "debug" || level == "trace")) return;
 
+        m = JSON.stringify(m);
+
         const msg = `[${UUID}] [${level}] ${m}`;
 
         if (level === "ERROR") {

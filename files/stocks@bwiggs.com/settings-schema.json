@@ -46,22 +46,13 @@
       { "symbol": "TSLA" },
       { "symbol": "META", "displayName": "GOOG" },
 
-      {"symbol": "^NYA", "displayName": "NYSE", "group": "market"},
-      {"symbol": "^GSPC", "displayName": "SP500", "group": "market"},
-      {"symbol": "^DJI", "displayName": "DOW", "group": "market"},
-      {"symbol": "^IXIC", "displayName": "NASDAQ", "group": "market"},
+      { "symbol": "BTC-USD", "displayName": "BTC", "group": "crypto" },
+      { "symbol": "ETH-USD", "displayName": "ETH", "group": "crypto" },
 
-      {"symbol": "VHT", "displayName":"Healthcare", "group": "sector"},
-      {"symbol": "VAW", "displayName": "Materials", "group": "sector"},
-      {"symbol": "VNQ", "displayName": "Real Estate", "group": "sector"},
-      {"symbol": "VDC", "displayName": "Cons. Discretionary", "group": "sector"},
-      {"symbol": "VCR", "displayName": "Cons. Staples", "group": "sector"},
-      {"symbol": "VDE", "displayName": "Energy", "group": "sector"},
-      {"symbol": "VIS", "displayName": "Industrials", "group": "sector"},
-      {"symbol": "VOX", "displayName": "Communications", "group": "sector"},
-      {"symbol": "VFH", "displayName": "Financials", "group": "sector"},
-      {"symbol": "VGT", "displayName": "Technology", "group": "sector"},
-      {"symbol": "VPU", "displayName": "Utilities", "group": "sector"}
+      {"symbol": "^NYA", "displayName": "NYSE", "group": "markets"},
+      {"symbol": "^GSPC", "displayName": "SP500", "group": "markets"},
+      {"symbol": "^DJI", "displayName": "DOW", "group": "markets"},
+      {"symbol": "^IXIC", "displayName": "NASDAQ", "group": "markets"}
     ]
   },
   "update-interval": {

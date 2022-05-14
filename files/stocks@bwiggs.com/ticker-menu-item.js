@@ -10,8 +10,9 @@ class TickerMenuItem extends PopupMenu.PopupBaseMenuItem {
     constructor(ticker, opts = {}, props) {
         super(props);
         this.showPrice = opts.price;
+        this.width = 250;
         this.ticker = ticker;
-        this._drawingArea = new St.DrawingArea({width: 200});
+        this._drawingArea = new St.DrawingArea({width: this.width});
         this._drawingArea.height = 15;
         this.addActor(this._drawingArea, { span: -1, expand: true });
         this._signals.connect(this._drawingArea, 'repaint', Lang.bind(this, this._onRepaint));
@@ -47,7 +48,7 @@ class TickerMenuItem extends PopupMenu.PopupBaseMenuItem {
 
         let color = idx == -1 ? colors.gray : gradientMap[1][idx];
 
-        { // color ticker symbol rect
+        { // ticker symbol
             // rect
             // cr.setSourceRGB(...color);
             // cr.setLineWidth(1);
@@ -59,32 +60,36 @@ class TickerMenuItem extends PopupMenu.PopupBaseMenuItem {
             cr.selectFontFace("monospace", Cairo.FontSlant.NORMAL, Cairo.FontWeight.NORMAL);
             cr.setFontSize(12);
             cr.moveTo(0, 12);
-            cr.showText(this.ticker.displayName || this.ticker.symbol); 
+
+            let nameLimit = 15;
+            let name = this.ticker.displayName || this.ticker.symbol;
+            if(name.length > nameLimit) {
+                name = this.ticker.displayName.substr(0, nameLimit).trim() + '…'
+            }
+            cr.showText(name); 
         }
-
-        // pct rect
-        let pctOffsetX = 140;
-        let pctBoxWidth = 60;
-        cr.setSourceRGB(...color);
-        // cr.setLineWidth(1);
-        cr.rectangle(pctOffsetX, 0, pctBoxWidth, h);
-        cr.fill();
-
-        cr.setSourceRGB(...colors.white);
 
         // price
         if(this.showPrice !== false) {
-            cr.moveTo(55, 12)
+            cr.moveTo(this.width - 140, 12)
             cr.showText(toCurrency(this.ticker.price).padStart(10));
         }
 
-        // pct
-        cr.selectFontFace("monospace", Cairo.FontSlant.NORMAL, Cairo.FontWeight.BOLD);
+        {// pct rect
+            let pctOffsetX = this.width - 57;
+            let pctBoxWidth = 60;
+            cr.setSourceRGB(...color);
+            // cr.setLineWidth(1);
+            cr.rectangle(pctOffsetX, 0, pctBoxWidth, h);
+            cr.fill();
 
-        let textX = (pctBoxWidth - (this.ticker.chgPct.toFixed(2).length*9))/2;
-        cr.moveTo(pctOffsetX + textX, 12);
-        cr.showText(`${this.ticker.chgPct.toFixed(2)}%`); 
-
+            cr.setSourceRGB(...colors.white);
+            // pct
+            cr.selectFontFace("monospace", Cairo.FontSlant.NORMAL, Cairo.FontWeight.BOLD);
+            let textX = (pctBoxWidth - (this.ticker.chgPct.toFixed(2).length*9))/2;
+            cr.moveTo(pctOffsetX + textX, 12);
+            cr.showText(`${this.ticker.chgPct.toFixed(2)}%`); 
+        }
         cr.$dispose();
     }
 
