@@ -1,0 +1,14 @@
+# /home/bwigginton/.config/tmuxinator/stockquotes@bwiggs.com.yml
+
+name: stockquotes@bwiggs.com
+root: /home/bwigginton/Projects/stockquotes@bwiggs.com
+
+pre_window: clear
+
+windows:
+  - main:
+      layout: even-vertical
+      panes:
+        - make dev
+        - make logs
+        - make xsession-errors

@@ -1,0 +1,7 @@
+{
+    "uuid": "stockquotes@bwiggs.com",
+    "name": "Stocks",
+    "description": "Stock quotes in your menubar.",
+    "icon": "display-brightness",
+    "max-instances": -1
+}

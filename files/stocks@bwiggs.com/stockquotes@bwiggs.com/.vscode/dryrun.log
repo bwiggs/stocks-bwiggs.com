@@ -1,0 +1,5 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory '/home/bwigginton/Projects/stockquotes@bwiggs.com'
+tmuxinator start stockquotes@bwiggs.com -n
+make: Leaving directory '/home/bwigginton/Projects/stockquotes@bwiggs.com'
+ 

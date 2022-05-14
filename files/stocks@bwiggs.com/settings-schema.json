@@ -1,0 +1,76 @@
+{
+  "layout1": {
+    "type": "layout",
+    "height": 600,
+		"width": 800,
+    "pages": [
+      "watchlist-page"
+    ],
+    "watchlist-page": {
+			"type": "page",
+			"title": "Watchlist",
+			"sections": [
+				"watchlist-section"
+			]
+    },
+    "watchlist-section": {
+			"type": "section",
+			"title": "Watchlists",
+			"keys": [
+				"watchlist"
+			]
+		}
+  },
+  "watchlist": {
+    "type": "list",
+    "height": 400,
+    "columns": [
+      {
+        "id": "symbol",
+        "title": "Symbol",
+        "type": "string"
+      },
+      {
+        "id": "displayName",
+        "title": "Display Name",
+        "type": "string"
+      },
+      {
+        "id": "group",
+        "title": "Group",
+        "type": "string"
+      }
+    ],
+    "default": [
+      { "symbol": "AAPL" },
+      { "symbol": "TSLA" },
+      { "symbol": "META", "displayName": "GOOG" },
+
+      {"symbol": "^NYA", "displayName": "NYSE", "group": "market"},
+      {"symbol": "^GSPC", "displayName": "SP500", "group": "market"},
+      {"symbol": "^DJI", "displayName": "DOW", "group": "market"},
+      {"symbol": "^IXIC", "displayName": "NASDAQ", "group": "market"},
+
+      {"symbol": "VHT", "displayName":"Healthcare", "group": "sector"},
+      {"symbol": "VAW", "displayName": "Materials", "group": "sector"},
+      {"symbol": "VNQ", "displayName": "Real Estate", "group": "sector"},
+      {"symbol": "VDC", "displayName": "Cons. Discretionary", "group": "sector"},
+      {"symbol": "VCR", "displayName": "Cons. Staples", "group": "sector"},
+      {"symbol": "VDE", "displayName": "Energy", "group": "sector"},
+      {"symbol": "VIS", "displayName": "Industrials", "group": "sector"},
+      {"symbol": "VOX", "displayName": "Communications", "group": "sector"},
+      {"symbol": "VFH", "displayName": "Financials", "group": "sector"},
+      {"symbol": "VGT", "displayName": "Technology", "group": "sector"},
+      {"symbol": "VPU", "displayName": "Utilities", "group": "sector"}
+    ]
+  },
+  "update-interval": {
+    "type": "spinbutton",
+    "default": 60,
+    "min": 5,
+    "max": 3600,
+    "step": 1,
+    "units": "sec",
+    "description": "Update interval"
+  }
+}
